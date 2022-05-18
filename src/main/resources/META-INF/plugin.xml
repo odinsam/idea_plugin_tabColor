@@ -15,7 +15,7 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
     set editor tab color and close all haven't color tabs<br>
-    <em>给tab标记颜色 以及 关闭所有没有颜色标签的tab</em>
+    <em>1. 给需要的tab标记颜色<br />2. 使用 Close All haven't Tag Tabs 菜单快速关闭所有没有颜色标签的tab</em>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.

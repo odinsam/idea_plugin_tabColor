@@ -1,33 +1,35 @@
 package com.odinsam.tabcolor.tabmenu;
 
+import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.ui.tabs.TabInfo;
-import org.apache.velocity.runtime.directive.Foreach;
+import com.odinsam.tabcolor.colors.TabColors;
+import com.odinsam.tabcolor.icons.IOdinTabColorIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx;
 import com.intellij.openapi.fileEditor.impl.EditorWindow;
 
-import java.awt.*;
+import javax.swing.*;
 
 public class TabColorGroup extends ActionGroup {
     @Override
     public AnAction @NotNull [] getChildren(@Nullable AnActionEvent e) {
         return new AnAction[]{
-                new OdinTabColor("FS Tab"),
-                new OdinTabColor("WS Tab"),
-                new OdinTabColor("DZ Tab"),
-                new OdinTabColor("QS Tab"),
-                new OdinTabColor("SS Tab"),
-                new OdinTabColor("XD Tab"),
-                new OdinTabColor("DH Tab"),
-                new OdinTabColor("LR Tab"),
-                new OdinTabColor("ZS Tab"),
-                new OdinTabColor("SM Tab"),
-                new OdinTabColor("MS Tab"),
-                new OdinTabClose("Close All haven't Tag Tabs")
+                new OdinTabColor("FS Tab","",IOdinTabColorIcons.TabColor_FS),
+                new OdinTabColor("WS Tab","",IOdinTabColorIcons.TabColor_WS),
+                new OdinTabColor("DZ Tab","",IOdinTabColorIcons.TabColor_DZ),
+                new OdinTabColor("QS Tab","",IOdinTabColorIcons.TabColor_QS),
+                new OdinTabColor("SS Tab","",IOdinTabColorIcons.TabColor_SS),
+                new OdinTabColor("XD Tab","",IOdinTabColorIcons.TabColor_XD),
+                new OdinTabColor("DH Tab","",IOdinTabColorIcons.TabColor_DH),
+                new OdinTabColor("LR Tab","",IOdinTabColorIcons.TabColor_LR),
+                new OdinTabColor("ZS Tab","",IOdinTabColorIcons.TabColor_ZS),
+                new OdinTabColor("SM Tab","",IOdinTabColorIcons.TabColor_SM),
+                new OdinTabColor("MS Tab","",IOdinTabColorIcons.TabColor_MS),
+                new OdinTabClose("Close All haven't Tag Tabs","", AllIcons.Actions.Close)
         };
     }
 
@@ -78,17 +80,9 @@ public class TabColorGroup extends ActionGroup {
                 tab.setTabColor(setColor);
         }
     }
-    class OdinTabSplit extends AnAction {
-        OdinTabSplit(String title)
-        {
-            super(title);
-        }
-        public void actionPerformed(AnActionEvent e) {
-
-        }
-    }
+    
     class OdinTabClose extends AnAction {
-        OdinTabClose(String title)
+        OdinTabClose(String title, String s, @NotNull Icon close)
         {
             super(title);
         }
@@ -111,9 +105,9 @@ public class TabColorGroup extends ActionGroup {
     }
     class OdinTabColor extends AnAction {
         private String tabColorName = null;
-        OdinTabColor(String title)
+        OdinTabColor(String title,String desc,Icon icon)
         {
-            super(title);
+            super(title,desc,icon);
             tabColorName = title.split(" ")[0];
         }
 

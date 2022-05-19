@@ -27,6 +27,11 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+    <application-components>
+        <component>
+            <implementation-class>com.odinsam.tabcolor.TabComponent</implementation-class>
+        </component>
+    </application-components>
     <actions>
         <group id="OdinTabColorGroup"
                class="com.odinsam.tabcolor.tabmenu.TabColorGroup"
@@ -35,5 +40,9 @@
                description="TabColor">
             <add-to-group group-id="EditorTabPopupMenu" anchor="first"/>
         </group>
+        <action id="OdinEditorTab" class="com.odinsam.tabcolor.tabmenu.OdinEditorTab" text="OdinEditorTab"
+                description="OdinEditorTab">
+            <add-to-group group-id="EditorActions" anchor="first"/>
+        </action>
     </actions>
 </idea-plugin>

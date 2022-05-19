@@ -1,4 +1,4 @@
-package com.odinsam.tabcolor.tabmenu;
+package com.odinsam.tabcolor.colors;
 
 import java.awt.*;
 import java.util.*;

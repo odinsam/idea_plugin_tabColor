@@ -2,7 +2,6 @@
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <id>com.odinsam.tabmenus</id>
-
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>TabColor</name>
@@ -14,8 +13,8 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    set editor tab color and close all haven't color tabs<br>
-    <em>1. 给需要的tab标记颜色<br />2. 使用 Close All haven't Tag Tabs 菜单快速关闭所有没有颜色标签的tab</em>
+    给所有已经打开的tab标记您喜欢的颜色，并方便的关闭所有没有颜色标记的tab<br>
+    <em>1.可以给你已经打开的tab标记一些对应的颜色 <br />2. 利用菜单 (Close All haven't Tag Tabs) 关闭所有没有颜色标记的tab</em>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -25,13 +24,9 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <editorTabColorProvider
+                implementation="com.odinsam.tabcolor.provider.CustomEditorTabColorProvider"/>
     </extensions>
-    <application-components>
-        <component>
-            <implementation-class>com.odinsam.tabcolor.TabComponent</implementation-class>
-        </component>
-    </application-components>
     <actions>
         <group id="OdinTabColorGroup"
                class="com.odinsam.tabcolor.tabmenu.TabColorGroup"
